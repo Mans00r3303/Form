@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+	<title>From</title>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script defer src="jquery.js"></script>
+
+	
+</head>
+<body>
+
+	<div class="container">
+
+		<h2>Regestration Form</h2>
+
+		<div class="header">
+
+		<form class="form" id="form" onsubmit="return validation()">
+
+			<div class="form-control ">
+			<label>Name:</label>
+			<input type="name" placeholder="Ali" id="name">
+			<small id="myname"></small>
+			</div>
+
+			<div class="form-control ">
+			<label>Father Name:</label>
+			<input type="name" placeholder="Khan" id="fname">
+			<small id="myfname"></small>
+			</div>
+
+			<div class="form-control">
+			<label>Email:</label>
+			<input type="email" placeholder="ali123@gmail.com" id="email">
+			<small id="myemail"></small>
+			</div>
+
+			<div class="form-control">
+			<label>Contact:</label>
+			<input type="contact" placeholder="57 334 577" id="contact">
+			<small id="mycontact"></small>
+			</div>
+
+			<input type="submit" value="SUBMIT" id="button">
+		
+
+		</form>
+		</div>
+	</div>
+
+
+<script>
+	
+	function validation(){
+		var name = document.getElementById('name').value;
+		var fname = document.getElementById('fname').value;
+		var email = document.getElementById('email').value;
+		var contact = document.getElementById('contact').value;
+
+		/*---- Name Field ----*/
+
+		if(name == "") {
+			document.getElementById('myname').innerHTML = "**Please Enter your Name";
+			return false;
+		}
+
+		if(name.length < 3){
+			document.getElementById('myname').innerHTML = "**Invalid Name";
+			return false;
+		}
+
+		if(!isNaN(name)) {
+			document.getElementById('myname').innerHTML = "**Invalid Name";
+			return false;
+		}
+
+		
+		/*---- Father Name Field ----*/
+
+
+
+		if(fname == "") {
+			document.getElementById('myfname').innerHTML = "**Please Enter your Father Name";
+			return false;
+		}
+
+		if(fname.length < 3){
+			document.getElementById('myfname').innerHTML = "**Invalid Name";
+			return false;
+		}
+
+		if(!isNaN(fname)) {
+			document.getElementById('myfname').innerHTML = "**Invalid Name";
+			return false;
+		}
+
+
+		
+		/*---- Email Field ----*/
+
+
+		if(email == "") {
+			document.getElementById('myemail').innerHTML = "**Please Enter your Email";
+			return false;
+		}
+
+		if(email.length < 12){
+			document.getElementById('myemail').innerHTML = "**Invalid Email";
+			return false;
+		}
+
+		if(email.indexOf('@') <= 3){
+			document.getElementById('myemail').innerHTML = "**Invalid Email";
+			return false;
+		}
+
+		if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.')) {
+			document.getElementById('myemail').innerHTML = "** .Invalid position";
+			return false;
+		}
+
+
+
+		/*------- Contact Field ------*/
+
+
+
+		if(contact == "") {
+			document.getElementById('mycontact').innerHTML = "**Please Enter your Contact No";
+			return false;
+		}
+
+		if(contact.length < 10){
+			document.getElementById('mycontact').innerHTML = "**Invalid Number";
+			return false;
+		}
+
+		if(isNaN(contact)) {
+			document.getElementById('mycontact').innerHTML = "**Invalid Contact";
+			return false;
+		}
+	}
+
+</script>
+</body>
+</html>
